@@ -1,3 +1,10 @@
 class profile::agent_nodes {
-  include docker
+  class { 'docker':
+   version => 'latest',
+
+   service { 'docker':
+   ensure => 'running',
+   enable => true,
+  }
  }
+}
